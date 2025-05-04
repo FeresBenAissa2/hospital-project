@@ -4,8 +4,10 @@ import com.esprit.patientservice.dto.PatientDto;
 import com.esprit.patientservice.service.IPatientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -31,7 +33,7 @@ public class PatientController {
 
 
     @GetMapping
-    public Page<PatientDto> getPatients(int pageNbr, int pageSize){
+    public Page<PatientDto> getPatients(@RequestParam int pageNbr, @RequestParam int pageSize){
         return patientService.getPatients(pageNbr,pageSize);
     }
 
@@ -40,9 +42,9 @@ public class PatientController {
         return patientService.getPatient(id);
     }
 
-    @GetMapping("name/{name}")
-    public PatientDto getPatientByName(@PathVariable String lastName){
-        return patientService.getPatientByLastName(lastName);
+    @GetMapping("lastname/{lastname}")
+    public List<PatientDto> getPatientByName(@PathVariable String lastname){
+        return patientService.getPatientByLastName(lastname);
     }
 
 }

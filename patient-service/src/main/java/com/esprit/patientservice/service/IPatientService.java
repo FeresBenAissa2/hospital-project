@@ -2,6 +2,8 @@ package com.esprit.patientservice.service;
 
 import com.esprit.patientservice.dto.PatientDto;
 import org.springframework.data.domain.Page;
+
+import java.util.List;
 import java.util.Map;
 
 public interface IPatientService {
@@ -16,5 +18,5 @@ public interface IPatientService {
 
     PatientDto getPatient(String id);
 
-    PatientDto getPatientByLastName(String lastname);
+    List<PatientDto> getPatientByLastName(String lastname);
 }
