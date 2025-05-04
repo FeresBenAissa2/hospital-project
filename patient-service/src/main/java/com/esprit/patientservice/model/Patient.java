@@ -25,6 +25,7 @@ public class Patient {
     String id;
     String firstName;
     String lastName;
+    @Indexed(unique = true)
     String cin;
 
     LocalDateTime createdAt;

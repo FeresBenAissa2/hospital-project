@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "8f1764ff-a59d-458c-8f17-6f230b12443b",
+		"name": "Patient-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[GET] All Patients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/patient?pageNbr=0&pageSize=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"patient"
+					],
+					"query": [
+						{
+							"key": "pageNbr",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[GET] Patient By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/patient/68176484e86c751ff49b27fb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"patient",
+						"68176484e86c751ff49b27fb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[GET] get Patient By LastName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/patient/lastname/BOULARES",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"patient",
+						"lastname",
+						"BOULARES"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[POST] Add Patient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\":\"FERES\",\r\n    \"lastName\":\"BEN AISSA\",\r\n    \"cin\":\"09643392\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/patient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[PATCH] Update Patient",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\":\"FERES\",\r\n    \"lastName\":\"BEN AISSA\",\r\n    \"cin\":\"09643392\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/patient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[DELETE] delete Patient",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\":\"FERES\",\r\n    \"lastName\":\"BEN AISSA\",\r\n    \"cin\":\"09643392\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/patient/6817686fa5e5ca7377ec3f6c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"patient",
+						"6817686fa5e5ca7377ec3f6c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
