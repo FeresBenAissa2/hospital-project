@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "144562d6-74a1-40e6-b2bc-1eb377c6b77a",
+		"name": "Appointment-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[GET] All Appointment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1/appointment?pageNbr=0&pageSize=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"appointment"
+					],
+					"query": [
+						{
+							"key": "pageNbr",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[GET] AppointmentBy Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1/appointment/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"appointment",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[POST] Add Appointment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"patientId\":\"68176484e86c751ff49b27fb\",\r\n    \"doctorName\":\"Dr. LAZHER AROUCH\",\r\n    \"department\":\"DEP_0-1\",\r\n    \"appointmentDateTime\":\"2025-05-04T14:15:26.844\",\r\n    \"status\":\"BOOKED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1/appointment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"appointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[PATCH] Update Appointment",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"patientId\":\"68176484e86c751ff49b27fb\",\r\n    \"doctorName\":\"Dr. LAZHER AROUCH\",\r\n    \"department\":\"DEP_0-1\",\r\n    \"status\":\"CANCELLED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1/appointment/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"appointment",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[DELETE] delete Appointment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\":\"FERES\",\r\n    \"lastName\":\"BEN AISSA\",\r\n    \"cin\":\"09643392\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1/appointment/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"appointment",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

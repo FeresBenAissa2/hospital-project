@@ -33,7 +33,7 @@ public class AppointmentController {
 
 
     @GetMapping
-    public Page<AppointmentDto> getAppointments(int pageNbr, int pageSize){
+    public Page<AppointmentDto> getAppointments(@RequestParam  int pageNbr, @RequestParam int pageSize){
         return appointmentService.getAppointments(pageNbr,pageSize);
     }
 
