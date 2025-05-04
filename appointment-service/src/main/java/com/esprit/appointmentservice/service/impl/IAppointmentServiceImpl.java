@@ -3,6 +3,7 @@ package com.esprit.appointmentservice.service.impl;
 import com.esprit.appointmentservice.dto.AppointmentDto;
 import com.esprit.appointmentservice.mapper.AppointmentMapper;
 import com.esprit.appointmentservice.model.Appointment;
+import com.esprit.appointmentservice.model.Status;
 import com.esprit.appointmentservice.repository.AppointmentRepository;
 import com.esprit.appointmentservice.service.IAppointmentService;
 
@@ -40,9 +41,12 @@ public class IAppointmentServiceImpl implements IAppointmentService {
             field.setAccessible(true);
 
             if(field.getType().equals(LocalDate.class)){
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-d");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
                 LocalDate localDate = LocalDate.parse((String) value, formatter);
                 ReflectionUtils.setField(field, appointment , localDate);
+            }
+            else if(field.getType().equals(Status.class)){
+                ReflectionUtils.setField(field, appointment ,Status.valueOf(value.toString()));
             }else {
                 ReflectionUtils.setField(field, appointment , value);
             }
