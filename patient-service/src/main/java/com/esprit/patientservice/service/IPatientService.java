@@ -19,4 +19,5 @@ public interface IPatientService {
     PatientDto getPatient(String id);
 
     List<PatientDto> getPatientByLastName(String lastname);
+    boolean checkPatientExistance(String id) ;
 }

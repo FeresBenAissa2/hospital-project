@@ -46,5 +46,9 @@ public class PatientController {
     public List<PatientDto> getPatientByName(@PathVariable String lastname){
         return patientService.getPatientByLastName(lastname);
     }
+    @GetMapping("/{id}/exists")
+    public boolean patientExists(@PathVariable String id) {
+        return patientService.checkPatientExistance(id);
+    }
 
 }

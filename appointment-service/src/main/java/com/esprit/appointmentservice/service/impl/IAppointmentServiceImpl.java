@@ -1,5 +1,6 @@
 package com.esprit.appointmentservice.service.impl;
 
+import com.esprit.appointmentservice.client.PatientServiceClient;
 import com.esprit.appointmentservice.dto.AppointmentDto;
 import com.esprit.appointmentservice.mapper.AppointmentMapper;
 import com.esprit.appointmentservice.model.Appointment;
@@ -7,6 +8,7 @@ import com.esprit.appointmentservice.model.Status;
 import com.esprit.appointmentservice.repository.AppointmentRepository;
 import com.esprit.appointmentservice.service.IAppointmentService;
 
+import com.esprit.shared.exception.PatientNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,8 +26,13 @@ import java.util.Map;
 public class IAppointmentServiceImpl implements IAppointmentService {
     private final AppointmentRepository appointmentRepository;
     private final AppointmentMapper appointmentMapper;
+    private final PatientServiceClient patientServiceClient;
+
     @Override
     public AppointmentDto add(AppointmentDto AppointmentDto) {
+        if (patientServiceClient.patientExists(AppointmentDto.patientId())){
+            throw new PatientNotFoundException("Patient Id: "+ AppointmentDto.patientId() +"Does not exist, please select a valid client ");
+        }
         Appointment appointment = appointmentMapper.mapToEntity(AppointmentDto);
         appointment.setCreatedAt(LocalDateTime.now());
         return appointmentMapper.mapToDto(appointmentRepository.save(appointment));

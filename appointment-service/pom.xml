@@ -63,6 +63,25 @@
 			<version>${mapstruct.version}</version>
 		</dependency>
 
+		<!-- Feign Client -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<version>3.1.9</version>
+		</dependency>
+
+		<!-- Shared -->
+		<dependency>
+			<groupId>com.esprit</groupId>
+			<artifactId>shared-service</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+			<!-- Circuit Breaker-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-circuitbreaker-resilience4j</artifactId>
+			<version>3.1.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>
