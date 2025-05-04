@@ -92,4 +92,9 @@ public class IPatientServiceImpl implements IPatientService {
                 .map(patientMapper::mapToDto)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public boolean checkPatientExistance(String id) {
+        return  patientRepository.existsById(id);
+    }
 }
