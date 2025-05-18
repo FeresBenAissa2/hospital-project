@@ -30,7 +30,8 @@ public class IAppointmentServiceImpl implements IAppointmentService {
 
     @Override
     public AppointmentDto add(AppointmentDto AppointmentDto) {
-        if (patientServiceClient.patientExists(AppointmentDto.patientId())){
+        boolean isPatientExits =patientServiceClient.patientExists(AppointmentDto.patientId());
+        if (!isPatientExits){
             throw new PatientNotFoundException("Patient Id: "+ AppointmentDto.patientId() +"Does not exist, please select a valid client ");
         }
         Appointment appointment = appointmentMapper.mapToEntity(AppointmentDto);
