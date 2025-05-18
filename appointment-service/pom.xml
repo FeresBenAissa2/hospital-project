@@ -32,6 +32,17 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
 	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>2023.0.2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -63,12 +74,6 @@
 			<version>${mapstruct.version}</version>
 		</dependency>
 
-		<!-- Feign Client -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-			<version>3.1.9</version>
-		</dependency>
 
 		<!-- Shared -->
 		<dependency>
@@ -76,12 +81,15 @@
 			<artifactId>shared-service</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
-			<!-- Circuit Breaker-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-circuitbreaker-resilience4j</artifactId>
-			<version>3.1.4</version>
+			<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
